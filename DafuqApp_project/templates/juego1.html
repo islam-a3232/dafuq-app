@@ -1,0 +1,56 @@
+<html>
+<body style="text-align:center;font-family:Arial;">
+<title>virtix games juego 1</title>
+<h1>Juego 1 - Click Challenge</h1>
+
+<p>Haz 100 clicks antes de que el tiempo llegue a 0</p>
+
+<h2 id="contador">Clicks: 0</h2>
+<h2 id="tiempo">Tiempo: 40</h2>
+
+<button onclick="clickBoton()" style="font-size:20px;">CLICK</button>
+
+<br><br>
+
+<a href="/">
+<button>Volver al menú</button>
+</a>
+
+<script>
+
+let clicks = 0
+let tiempo = 40
+let juegoActivo = true
+
+function clickBoton(){
+
+if(!juegoActivo) return
+
+clicks++
+document.getElementById("contador").innerText = "Clicks: " + clicks
+
+if(clicks >= 100){
+alert("¡Ganaste! 🤑")
+juegoActivo = false
+}
+
+}
+
+let timer = setInterval(function(){
+
+if(!juegoActivo) return
+
+tiempo--
+document.getElementById("tiempo").innerText = "Tiempo: " + tiempo
+
+if(tiempo <= 0){
+alert("Perdiste 😢")
+juegoActivo = false
+}
+
+},1000)
+
+</script>
+
+</body>
+</html>
